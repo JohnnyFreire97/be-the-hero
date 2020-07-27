@@ -2,13 +2,14 @@ const express = require('express');
 const routes = require('./routes');
 const cors = require('cors');
 const { use } = require('./routes');
-
+const { errors } = require('celebrate');
 const app = express();
 
 app.use(cors());
 //express converter json em objeto JS
 app.use(express.json());
 app.use(routes);
+app.use(errors());
 
 
 /**
@@ -45,4 +46,4 @@ app.use(routes);
    */
 
 
-app.listen(3333);
+module.exports = app;
